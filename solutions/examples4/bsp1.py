@@ -34,9 +34,12 @@ class Anlage:
 
     def simuliere(self, max_jahre: int, min_wert: int):
         counter = 0
+        # writing off before also correct - problem statement is very general 
         while counter < max_jahre or self.rest_wert == 0 or self.rest_wert < min_wert:
             counter += 1
+            print(self.rest_wert)
             self.abschreiben()
+            print(self.rest_wert)
 
     def renew(self, zusatz_wert: int, zusatz_jahre: int) -> "Anlage":
         return Anlage(self.bezeichnung, self.rest_wert + zusatz_wert, self.nutzungsdauer - self.alter + zusatz_jahre)
