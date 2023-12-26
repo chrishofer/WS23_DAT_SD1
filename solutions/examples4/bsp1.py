@@ -1,3 +1,5 @@
+from math import floor
+
 class Anlage:
     def __init__(self, bezeichnung:str, initialer_wert:float, nutzungsdauer: int):
         self.__bezeichnung = bezeichnung
@@ -28,7 +30,7 @@ class Anlage:
     def abschreiben(self):
         self.__alter += 1
         if self.alter <= self.nutzungsdauer:
-            self.__rest_wert = self.initialer_wert / self.nutzungsdauer * (self.nutzungsdauer - self.alter)
+            self.__rest_wert = floor(self.initialer_wert / self.nutzungsdauer * (self.nutzungsdauer - self.alter))
 
     def simuliere(self, max_jahre: int, min_wert: int):
         counter = 0
