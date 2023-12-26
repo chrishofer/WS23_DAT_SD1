@@ -53,6 +53,19 @@ class Hund:
     def __repr__(self):
         return f"Hund(name={self.name}, age={self.age})"
 
+class Corgi(Hund):
+    # es wird von python automatisch immer nur ein init aufgerufen
+    # wenn wir kein init hätten würde automatisch das init von Hund (elternklasse) aufgerufen werden
+    def __init__(self, name: str, age: int, lv: str):
+        # hier müssen wir unsere initialiseirung machen - damit wir nicht code doppelt haben
+        # müssen wir das init unserer elternklasse explizit aufrufen (ACHTUNG: in anderen programmirersprachen geht das manchmal automatisch rufen)
+        super().__init__(name, age) # damite rufe ich die implementation meiner basisklasse auf
+        self.loves_food = lv
+
+    def gib_laut(self, text: str):
+        print(f'Corgi {self.name} bellt nicht da er gerade {self.loves_food} isst')
+
+
 if __name__ == '__main__':
 
     # statische oder klassiche Methode aufrufen
@@ -68,5 +81,7 @@ if __name__ == '__main__':
     #rex._hund__chip_nr = 1 # vergessen und nicht machen
 
 
-
+    rex.gib_laut("Achtung ein Wurstsemmel Dieb")
+    c = Corgi("Cheddar", 13, "Känguru")
+    c.gib_laut("Nix")
 
