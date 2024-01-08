@@ -1,3 +1,5 @@
+from math import floor
+
 class Anlage:
     def __init__(self, bezeichnung:str, initialer_wert:float, nutzungsdauer: int):
         self.__bezeichnung = bezeichnung
@@ -28,13 +30,16 @@ class Anlage:
     def abschreiben(self):
         self.__alter += 1
         if self.alter <= self.nutzungsdauer:
-            self.__rest_wert = self.initialer_wert / self.nutzungsdauer * (self.nutzungsdauer - self.alter)
+            self.__rest_wert = floor(self.initialer_wert / self.nutzungsdauer * (self.nutzungsdauer - self.alter))
 
     def simuliere(self, max_jahre: int, min_wert: int):
         counter = 0
+        # writing off before also correct - problem statement is very general 
         while counter < max_jahre or self.rest_wert == 0 or self.rest_wert < min_wert:
             counter += 1
+            print(self.rest_wert)
             self.abschreiben()
+            print(self.rest_wert)
 
     def renew(self, zusatz_wert: int, zusatz_jahre: int) -> "Anlage":
         return Anlage(self.bezeichnung, self.rest_wert + zusatz_wert, self.nutzungsdauer - self.alter + zusatz_jahre)
