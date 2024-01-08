@@ -43,7 +43,7 @@ class Verwaltungsstrafe:
     def anzahl(self):
         return self.__anzahl
 
-    def strafe(self, geschwindigkeitsueberschreitung: int):
+    def ueberschreitung(self, geschwindigkeitsueberschreitung: int):
         self.__anzahl += 1
         if geschwindigkeitsueberschreitung <= 20:
             self.__strafe += 30
@@ -80,3 +80,6 @@ if __name__ == '__main__':
     b = Verwaltungsstrafe("susi", "musterstudi", "was259")
     print(a.strafnummer)
     print(b.strafnummer)
+    a.ueberschreitung(100)
+    print(a.strafe)
+    
