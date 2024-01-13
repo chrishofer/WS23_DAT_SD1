@@ -73,8 +73,6 @@ class Verwaltungsstrafe:
         else:
             self.__strafe += 5000
 
-
-
 if __name__ == '__main__':
     a = Verwaltungsstrafe("hansi", "hinterseer", "was299")
     b = Verwaltungsstrafe("susi", "musterstudi", "was259")

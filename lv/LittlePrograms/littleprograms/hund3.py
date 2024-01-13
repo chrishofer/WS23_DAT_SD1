@@ -3,6 +3,7 @@ class Hund:
     zaehler = 0 # zählen wie viele Hundeinstanzen es gibt
 
 
+
     @property
     def chip_nr(self):
         return self.__chip_nr
@@ -63,6 +64,7 @@ class Corgi(Hund):
         self.loves_food = lv
 
     def gib_laut(self, text: str):
+        super().gib_laut("Bin auch ein Hund") # ruft die Implementation einer Basisklasse auf
         print(f'Corgi {self.name} bellt nicht da er gerade {self.loves_food} isst')
 
 
@@ -76,6 +78,7 @@ if __name__ == '__main__':
     Hund.print_anzahl_hunde()
 
 
+    print(rex.pulse)
     rex.chip_nr = 1 # von außen (main, andere klassen) greifen wir nur über den namen direkt zu (damit über get/set properties)
     # rex.pulse = 10 # funktioniert nicht, da nur get property
     #rex._hund__chip_nr = 1 # vergessen und nicht machen
